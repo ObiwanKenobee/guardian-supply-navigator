@@ -33,31 +33,31 @@ const navigationItems: NavigationItem[] = [
   {
     title: "Blockchain Transparency",
     icon: Database,
-    href: "#blockchain",
+    href: "/blockchain",
     description: "Monitor real-time supply chain and compliance status",
   },
   {
     title: "Data Security",
     icon: Shield,
-    href: "#security",
+    href: "/security",
     description: "View threat detection and incident response metrics",
   },
   {
     title: "Sustainability",
     icon: Leaf,
-    href: "#sustainability",
+    href: "/sustainability",
     description: "Track carbon footprint and sustainability goals",
   },
   {
     title: "Compliance",
     icon: Gavel,
-    href: "#compliance",
+    href: "/compliance",
     description: "Manage regulatory compliance and audits",
   },
   {
     title: "Integration Platform",
     icon: Server,
-    href: "#integration",
+    href: "/integration",
     description: "Monitor system integrations and workflows",
   },
 ]
@@ -99,8 +99,8 @@ const Header = () => {
           type="search"
           placeholder="Search features, reports, or tools..."
           className="h-9"
-          prefix={<Search className="h-4 w-4 text-muted-foreground" />}
         />
+        <Search className="h-4 w-4 text-muted-foreground" />
       </div>
       <div className="flex items-center space-x-4">
         <Button variant="ghost" size="icon" className="relative">
