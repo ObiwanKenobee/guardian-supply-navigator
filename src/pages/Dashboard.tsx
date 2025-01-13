@@ -22,7 +22,13 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-const navigationItems = [
+type NavigationItem = {
+  title: string;
+  icon: React.ComponentType<any>;
+  href: string;
+}
+
+const navigationItems: NavigationItem[] = [
   {
     title: "Blockchain Transparency",
     icon: Database,
@@ -125,7 +131,6 @@ const Dashboard = () => {
           <main className="flex-1 p-6">
             <h1 className="mb-8 text-3xl font-bold">Dashboard</h1>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* Placeholder cards for the different sections */}
               {navigationItems.map((item) => (
                 <div
                   key={item.title}
