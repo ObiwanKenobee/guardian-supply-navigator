@@ -26,6 +26,7 @@ type NavigationItem = {
   title: string;
   icon: React.ComponentType<any>;
   href: string;
+  description: string;
 }
 
 const navigationItems: NavigationItem[] = [
@@ -33,26 +34,31 @@ const navigationItems: NavigationItem[] = [
     title: "Blockchain Transparency",
     icon: Database,
     href: "#blockchain",
+    description: "Monitor real-time supply chain and compliance status",
   },
   {
     title: "Data Security",
     icon: Shield,
     href: "#security",
+    description: "View threat detection and incident response metrics",
   },
   {
     title: "Sustainability",
     icon: Leaf,
     href: "#sustainability",
+    description: "Track carbon footprint and sustainability goals",
   },
   {
     title: "Compliance",
     icon: Gavel,
     href: "#compliance",
+    description: "Manage regulatory compliance and audits",
   },
   {
     title: "Integration Platform",
     icon: Server,
     href: "#integration",
+    description: "Monitor system integrations and workflows",
   },
 ]
 
@@ -91,7 +97,7 @@ const Header = () => {
       <div className="flex w-full max-w-sm items-center space-x-4">
         <Input
           type="search"
-          placeholder="Search..."
+          placeholder="Search features, reports, or tools..."
           className="h-9"
           prefix={<Search className="h-4 w-4 text-muted-foreground" />}
         />
@@ -128,23 +134,28 @@ const Dashboard = () => {
         <DashboardSidebar />
         <div className="flex w-full flex-col">
           <Header />
-          <main className="flex-1 p-6">
-            <h1 className="mb-8 text-3xl font-bold">Dashboard</h1>
+          <main className="flex-1 overflow-auto p-6">
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold">Welcome to Guardian IO</h1>
+              <p className="mt-2 text-muted-foreground">
+                Monitor and manage your supply chain transparency, security, and compliance
+              </p>
+            </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {navigationItems.map((item) => (
-                <div
+                <a
                   key={item.title}
-                  className="rounded-lg border bg-card p-6 shadow-sm"
+                  href={item.href}
+                  className="group rounded-lg border bg-card p-6 shadow-sm transition-colors hover:border-primary/20 hover:bg-accent/50"
                 >
                   <div className="mb-4 flex items-center space-x-2">
                     <item.icon className="h-5 w-5" />
                     <h3 className="font-semibold">{item.title}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Click to view detailed analytics and management tools for{" "}
-                    {item.title.toLowerCase()}.
+                    {item.description}
                   </p>
-                </div>
+                </a>
               ))}
             </div>
           </main>
